@@ -15,7 +15,7 @@ Retail stores need accurate sales forecasting to optimize operations and invento
 - **Scope**: 45 Walmart stores (2010-2012)
 - **Records**: 6,435 entries with no missing values
 - **Features**: Store number, dates, holiday flags, temperature, fuel price, CPI, unemployment rate
-- **Target**: Weekly sales ($209,986 - $3,818,686)
+- **Target**: Weekly sales 
 - **Special Events**: Super Bowl, Labor Day, Thanksgiving, Christmas
 
 ## Methodology
