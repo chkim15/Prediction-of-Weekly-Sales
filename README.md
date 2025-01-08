@@ -1,4 +1,5 @@
-* This project was done in December 2022 as a class project.
+## **Context**
+This project was done in December 2022 as a class project.
 
 # Walmart Sales Prediction Using Advanced ML Techniques
 
