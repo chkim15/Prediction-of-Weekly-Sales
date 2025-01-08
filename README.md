@@ -1,4 +1,4 @@
-# Walmart Store Sales Prediction
+# Walmart Weekly Sales Prediction
 
 This project develops and compares machine learning models to predict weekly sales for 45 Walmart stores based on economic indicators and store-specific data.
 
