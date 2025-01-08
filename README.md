@@ -1,44 +1,66 @@
-# Walmart Weekly Sales Prediction
+# Walmart Sales Prediction Using Advanced ML Techniques
 
-This project develops and compares machine learning models to predict weekly sales for 45 Walmart stores based on economic indicators and store-specific data.
+A comprehensive analysis comparing multiple machine learning approaches to predict weekly sales across 45 Walmart stores using economic indicators and store-specific data. This project demonstrates expertise in time series analysis, ensemble methods, and thorough model evaluation.
 
-## Project Overview
+## Business Problem
 
-- **Dataset**: Historical sales data from 2010-2012 covering 45 Walmart stores
-- **Target Variable**: Weekly sales per store
-- **Features**: Store number, date, holiday flags, temperature, fuel price, CPI, unemployment rate
-- **Records**: 6,435 rows with no missing values
+Retail stores need accurate sales forecasting to optimize operations and inventory management. This project analyzes how different economic conditions (CPI, unemployment, fuel prices) and store-specific factors influence weekly sales, helping to:
+- Predict future sales performance
+- Understand seasonal patterns and holiday effects
+- Identify key economic indicators affecting sales
+- Enable data-driven operational planning
 
-## Methods & Models
+## Dataset
 
-Implemented and compared multiple approaches:
+- **Scope**: 45 Walmart stores (2010-2012)
+- **Records**: 6,435 entries with no missing values
+- **Features**: Store number, dates, holiday flags, temperature, fuel price, CPI, unemployment rate
+- **Target**: Weekly sales ($209,986 - $3,818,686)
+- **Special Events**: Super Bowl, Labor Day, Thanksgiving, Christmas
 
-1. **Linear Regression (Baseline)**
-   - Log-transformed sales data
-   - One-hot encoded categorical variables
-   - Achieved R² = 0.975 on test set
+## Methodology
 
-2. **SARIMA Time Series Analysis**
-   - SARIMAX(1,1,1)x(1,1,1,52) for seasonal stores
-   - ARIMA(4,1,4) for trend stores
-   - Best RMSE performance among all models
+### 1. Linear Regression (Baseline)
+- Log-transformed sales for multiplicative effects
+- One-hot encoded categorical variables
+- Implemented 10-fold cross-validation with shuffling
+- Achieved R² = 0.975 on test set
+- Thoroughly validated regression assumptions
 
-3. **Random Forest**
-   - Handled categorical variables without encoding
-   - R² = 0.958 on test set
-   - Feature importance analysis showed store number as key predictor
+### 2. Time Series Analysis (SARIMA)
+- SARIMAX(1,1,1)x(1,1,1,52) for seasonal patterns
+- ARIMA(4,1,4) for trend-focused stores
+- Identified distinct store patterns using ACF/PACF analysis
+- Best RMSE performance: 56,730 (seasonal) / 13,146 (trend)
 
-4. **XGBoost**
-   - Best performing ML model
-   - R² = 0.978 on test set
-   - Excellent performance without feature engineering
+### 3. Random Forest
+- Implemented both with/without one-hot encoding
+- Optimized hyperparameters using OOB scores
+- 100 estimators with 0.5 feature sampling
+- R² = 0.958 on test set
+
+### 4. XGBoost
+- Achieved best overall performance
+- R² = 0.978 on test set
+- Used GridSearchCV for hyperparameter optimization
+- Robust performance without feature engineering
 
 ## Key Findings
 
-- SARIMA models showed superior performance for short-term predictions
-- XGBoost achieved best overall R² score among ML models
-- Store number and unemployment rate were top predictive features
-- Holiday periods showed significant sales variations
+1. **Model Performance**
+   - XGBoost achieved highest accuracy (R² = 0.978)
+   - SARIMA showed superior short-term forecasting
+   - Linear regression provided strong baseline (R² = 0.975)
+
+2. **Feature Importance**
+   - Store location was the dominant predictor
+   - Unemployment rate showed significant impact
+   - Holiday periods demonstrated clear sales patterns
+
+3. **Technical Insights**
+   - Store-specific trends require specialized modeling
+   - Seasonal patterns strongly influence predictions
+   - Economic indicators have varying impact by location
 
 ## Technologies Used
 
@@ -46,11 +68,13 @@ Implemented and compared multiple approaches:
 - Pandas, NumPy
 - Scikit-learn
 - XGBoost
-- Statsmodels (SARIMA)
+- Statsmodels
+- Matplotlib, Seaborn
 
-## Future Work
+## Future Improvements
 
 - Integration of additional economic indicators
-- Exploration of deep learning approaches
-- Incorporation of more recent data
-- Investigation of store-specific patterns
+- Deep learning implementation
+- Incorporation of competitor data
+- More sophisticated seasonal pattern analysis
+- Extension to more recent data
