@@ -1,3 +1,5 @@
+* This project was done in December 2022 as a class project.
+
 # Walmart Sales Prediction Using Advanced ML Techniques
 
 A comprehensive analysis comparing multiple machine learning approaches to predict weekly sales across 45 Walmart stores using economic indicators and store-specific data. This project demonstrates expertise in time series analysis, ensemble methods, and thorough model evaluation.
